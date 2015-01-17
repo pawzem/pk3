@@ -47,9 +47,9 @@ void Date::setMonth(int x)
 Date Date::diff(Date& d)
 {
 	Date pom(*this);
-	pom.setDay(pom.getDay-d.getDay);
-	pom.setYear(pom.getYear - d.getYear);
-	pom.setMonth(pom.getMonth - d.getMonth);
+	pom.setDay(pom.getDay()-d.getDay());
+	pom.setYear(pom.getYear() - d.getYear());
+	pom.setMonth(pom.getMonth() - d.getMonth());
 
 	return pom;
 }
@@ -62,9 +62,19 @@ Date Date::operator-(Date& x)
 Date Date::operator-(int x)
 {
 	Date pom(*this);
-	pom.setDay(pom.getDay - x);
-	pom.setYear(pom.getYear - x);
-	pom.setMonth(pom.getMonth - x);
+	pom.setDay(pom.getDay() - x);
+	pom.setYear(pom.getYear() - x);
+	pom.setMonth(pom.getMonth() - x);
+
+	return pom;
+}
+
+Date Date::operator+(int x)
+{
+	Date pom(*this);
+	pom.setDay(pom.getDay() + x);
+	pom.setYear(pom.getYear() + x);
+	pom.setMonth(pom.getMonth() + x);
 
 	return pom;
 }
@@ -190,4 +200,101 @@ template<class T> T List<T>::incIterator()
 {
 	this->iterator = (*(this->iterator)).getNext();
 	return (*(this->iterator)).getObject();
+}
+
+
+Resource::Resource(int i, string spe, string tit, string aut, string local) :
+id(i), specification(spe), title(tit), author(aut), localisation(local), avilible(true)
+{
+
+}
+
+
+int Resource::getId(){
+	return this->id;
+}
+string Resource::getSpec(){
+	return this->specification;
+
+}
+string Resource::getTitle(){
+	return this->title;
+}
+string Resource::getAuthor(){
+	return this->author;
+}
+string Resource::getPosition(){
+	return this->localisation;
+}
+
+
+void Resource::setId(int dat){
+	this->id = dat;
+}
+void Resource::setSpec(string dat){
+	this->specification = dat;
+}
+void Resource::setTitle(string dat){
+	this->title = dat;
+}
+void Resource::setAuthor(string dat){
+	this->author = dat;
+}
+void Resource::setPosition(string dat){
+	this->localisation = dat;
+}
+/*void Resource::setReturnDate(){
+
+}*/
+
+bool Resource::isAvilible(){
+	return this->avilible;
+}
+
+bool Resource::changeStatus(){
+	this->avilible = !(this->avilible);
+	return this->avilible;
+}
+
+
+
+
+
+
+void Digital::openLocation(){
+	std::cout << this->getPosition();
+}
+
+Digital::Digital(int i, string spe, string tit, string aut, string local) 
+{
+	this -> id = i;
+	this->specification = spe;
+	this->title = tit;
+	this->author = aut;
+	this->localisation = local;
+	this->avilible = true;
+}
+
+
+Real::Real(int i, string spe, string tit, string aut, string local) 
+{
+	this->id = i;
+	this->specification = spe;
+	this->title = tit;
+	this->author = aut;
+	this->localisation = local;
+	this->avilible = true;
+}
+
+Date Real::getDate(){
+	return this->date;
+}
+
+
+void Real::setDate(Date dat){
+	this->date = dat;
+}
+
+void Real::openLocation(){
+	std::cout << this->getPosition();
 }

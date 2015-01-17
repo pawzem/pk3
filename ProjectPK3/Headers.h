@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
 class Date
@@ -17,6 +18,7 @@ public:
 	void setDay(int);
 	Date operator- (Date&);
 	Date operator- (int);
+	Date operator+ (int);
 };
 
 
@@ -62,4 +64,58 @@ public:
 	T getIterator();
 	T incIterator();
 	void resetIterator();
+};
+
+
+
+class Resource
+{
+private:
+protected:
+	Resource(){};
+	int id;
+	string specification, title, author, localisation;
+	Date returns;
+	bool avilible;
+public:
+	Resource(int, string, string, string, string);
+	int getId();
+	string getSpec();
+	string getTitle();
+	string getAuthor();
+	string getPosition();
+
+
+	void setId(int);
+	void setSpec(string);
+	void setTitle(string);
+	void setAuthor(string);
+	void setPosition(string);
+	//void setReturnDate(string);
+
+	bool isAvilible();
+	bool changeStatus();
+
+	virtual void openLocation() = 0;
+
+
+};
+
+
+class Digital: public Resource
+{
+public:
+	Digital(int, string, string, string, string);
+	void openLocation();
+};
+
+class Real : public Resource
+{
+private:
+	Date date;
+public:
+	Real(int, string, string, string, string);
+	Date getDate();
+	void setDate(Date);
+	void openLocation();
 };

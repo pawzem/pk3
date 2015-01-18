@@ -146,8 +146,9 @@ template<class T> List<T>::List(const List& lis)
 {
 	this->size = lis.getSize();
 	Element<T>* act = lis->begin;
-	while ((*act).getNext() != nullptr){
+	while (act != nullptr){
 		this->pushBack((*act).getObject());
+		act = (*act).getNext();
 	}
 	this->resetIterator();
 }

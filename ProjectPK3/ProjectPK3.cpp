@@ -4,39 +4,73 @@
 #include "stdafx.h"
 #include "Definitions.h"
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
-	int a = 5;
-	Element<int> x(a);
-	cout << x.getObject() << endl;
+	if (argc !=2)return 0;
+	string log, pas;
+	cout << "Podaj login\n";
+	cin >> log;
 
-	/*List<int>* lista = new List<int>();
-	(*lista).pushBack(a);
-	(*lista).pushBack(a);
-	(*lista).pushBack(a);
-	(*lista).pushBack(a);
-	(*lista).pullBack();
-	(*lista).pullBack();
-	cout << (*lista).getSize() << endl;
-	delete lista;*/
-	List<int> lista;
-	lista.pushBack(a);
-	a--;
-	cout << lista.getIterator() << endl;
-	//lista.incIterator();
-	lista.pushBack(a);
-	lista.incIterator();
-	cout << lista.getIterator() << endl;
-	a--;
-	lista.pushBack(a);
-	lista.incIterator();
-	lista.pullBack();
-	cout << lista.getIterator() << endl;
-	a--;
-	char k;
-	cin >> k;
+	cout << "Podaj has³o\n";
+	cin >> pas;
+	string file(argv[1]);
+	cout << file<<"a" << endl;
+	Cascade libary(log,pas);
+	
+	libary.init(file);
+	
+	char what='0';
+
+	while (what != 'q'){
+		cout << "co chcesz zrobiæ?\n 1 wyœwietl\n 2 wyporzycz\n 3 oddaj \n q koniec \n";
+		if (libary.getLevel() == 0)cout << " 4 dodaj ksi¹¿kê \n";
+		cin >> what;
+		if (what == '1'){
+			libary.showResources();
+		}
+		else if (what == '2'){
+			cout << "Podaj numer isbn\n";
+				int n;
+				cin >> n;
+				if(libary.borrow(n))cout<<"wypo¿yczono\n";
+				else cout << "nie wypo¿yczono\n";
+		}
+		else if (what == '3'){
+			cout << "Podaj numer isbn\n";
+			int n;
+			cin >> n;
+			if (libary.unBorrow(n))cout << "oddano\n";
+			else cout << "nie oddano\n";
+		}
+		else if ( (what == '4') && (libary.getLevel() == 0) ){
+			int id;
+			string sp, ti, au, lo;
+			cout << "podaj isbn";
+			cin >> id;
+			cout << "podaj autora";
+			cin >> au;
+			cout << "podaj tytu³";
+			cin >> ti;
+			cout << "podaj lokalizacjê";
+			cin >> lo;
+			cout << "podaj opis";
+			cin >> sp;
+			Real* pom2 = new Real(id, sp, ti, au, lo);
+			libary.addResource(pom2);
+
+		}
+		else if (what == 'q'){
+			cout << "Do widzenia";
+		}
+		else cout << "z³a komenda";
+
+	}
+		
+		
+		
 
 
+	libary.save(file);
 	return 0;
 }
 

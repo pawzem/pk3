@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<fstream>
 using namespace std;
 
 class Date
@@ -118,4 +119,35 @@ public:
 	Date getDate();
 	void setDate(Date);
 	void openLocation();
+};
+
+class Cascade
+{
+private:
+	const string ulogin = "user";
+	const string upassword = "password";
+	const string alogin = "admin";
+	const string apassword = "admin1234";
+
+	const int alevel=0;
+	const int ulevel = 1;
+	const int dlevel = 2;
+
+	int level;
+
+	List<Resource*> lista;
+
+public:
+	Cascade(string,string);
+	~Cascade();
+	void login(string, string);
+	int getLevel();
+	void addResource(Resource*);
+	bool borrow(int);
+	bool unBorrow(int);
+	void showResources();
+	void showResource(int);
+
+	bool init(string);
+	bool save(string);
 };

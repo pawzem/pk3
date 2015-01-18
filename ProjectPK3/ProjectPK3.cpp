@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	cout << "Podaj has³o\n";
 	cin >> pas;
 	string file(argv[1]);
-	cout << file<<"a" << endl;
+
 	Cascade libary(log,pas);
 	
 	libary.init(file);
@@ -30,20 +30,20 @@ int main(int argc, char* argv[])
 		}
 		else if (what == '2'){
 			cout << "Podaj numer isbn\n";
-				int n;
+				string n;
 				cin >> n;
 				if(libary.borrow(n))cout<<"wypo¿yczono\n";
 				else cout << "nie wypo¿yczono\n";
 		}
 		else if (what == '3'){
 			cout << "Podaj numer isbn\n";
-			int n;
+			string n;
 			cin >> n;
 			if (libary.unBorrow(n))cout << "oddano\n";
 			else cout << "nie oddano\n";
 		}
 		else if ( (what == '4') && (libary.getLevel() == 0) ){
-			int id;
+			string id;
 			string sp, ti, au, lo;
 			cout << "podaj isbn";
 			cin >> id;

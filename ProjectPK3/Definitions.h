@@ -1,3 +1,5 @@
+#ifndef PK3PROJECTD
+#define PK3PROJECTD
 #include"Headers.h" 
 
 //Date
@@ -140,9 +142,28 @@ template<class T> List<T>::~List()
 
 }
 
+template<class T> List<T>::List(const List& lis)
+{
+	this->size = lis.getSize();
+	Element<T>* act = lis->begin;
+	while ((*act).getNext() != nullptr){
+		this->pushBack((*act).getObject());
+	}
+	this->resetIterator();
+}
+
+
+
 template<class T> void List<T>::pushBack(T& ele)
 {
-	Element<T>* act = new Element<T>(ele);
+	Element<T>* act;
+	try{
+		act = new Element<T>(ele);
+	}
+	catch (exception& e){
+		cout << e.what() << endl;
+		return;
+	}
 
 	Element<T>* pom = this->begin;
 
@@ -203,14 +224,14 @@ template<class T> T List<T>::incIterator()
 }
 
 
-Resource::Resource(int i, string spe, string tit, string aut, string local) :
+Resource::Resource(string i, string spe, string tit, string aut, string local) :
 id(i), specification(spe), title(tit), author(aut), localisation(local), avilible(true)
 {
 
 }
 
 
-int Resource::getId(){
+string Resource::getId(){
 	return this->id;
 }
 string Resource::getSpec(){
@@ -228,7 +249,7 @@ string Resource::getPosition(){
 }
 
 
-void Resource::setId(int dat){
+void Resource::setId(string dat){
 	this->id = dat;
 }
 void Resource::setSpec(string dat){
@@ -265,7 +286,7 @@ void Digital::openLocation(){
 	std::cout << this->getPosition();
 }
 
-Digital::Digital(int i, string spe, string tit, string aut, string local) 
+Digital::Digital(string i, string spe, string tit, string aut, string local) 
 {
 	this -> id = i;
 	this->specification = spe;
@@ -276,7 +297,7 @@ Digital::Digital(int i, string spe, string tit, string aut, string local)
 }
 
 
-Real::Real(int i, string spe, string tit, string aut, string local) 
+Real::Real(string i, string spe, string tit, string aut, string local) 
 {
 	this->id = i;
 	this->specification = spe;
@@ -332,7 +353,7 @@ void Cascade::addResource(Resource* book){
 	if(level <= this->ulevel)(this->lista).pushBack(book);
 }
 
-bool Cascade::borrow(int isbn){
+bool Cascade::borrow(string isbn){
 	if (this->level >= this->ulevel)return false;
 	(this->lista).resetIterator();
 	int s = (this->lista).getSize();
@@ -349,7 +370,7 @@ bool Cascade::borrow(int isbn){
 	return false;
 }
 
-bool Cascade::unBorrow(int isbn){
+bool Cascade::unBorrow(string isbn){
 	if (this->level >= this->ulevel)return false;
 	(this->lista).resetIterator();
 	int s = (this->lista).getSize();
@@ -383,7 +404,7 @@ void Cascade::showResources(){
 }
 
 
-void Cascade::showResource(int isbn){
+void Cascade::showResource(string isbn){
 	(this->lista).resetIterator();
 	int s = (this->lista).getSize();
 	for (int i = 0; i < s; ++i){
@@ -449,7 +470,7 @@ void Cascade::showResource(int isbn){
 	 if (plik.is_open() == true)
 	 {
 
-		 int id;
+		 string id;
 		 string sp, ti, au, lo;
 		 int s;
 		 plik >> s;
@@ -472,3 +493,4 @@ void Cascade::showResource(int isbn){
 
  }
 
+#endif

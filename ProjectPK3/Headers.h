@@ -1,3 +1,5 @@
+#ifndef PK3PROJECTH
+#define PK3PROJECTH
 #include<iostream>
 #include<string>
 #include<fstream>
@@ -60,6 +62,7 @@ public:
 	unsigned int getSize();
 	List();
 	~List();
+	List(const List& );
 	void pushBack(T&);
 	void pullBack();
 	T getIterator();
@@ -74,20 +77,20 @@ class Resource
 private:
 protected:
 	Resource(){};
-	int id;
+	string id;
 	string specification, title, author, localisation;
 	Date returns;
 	bool avilible;
 public:
-	Resource(int, string, string, string, string);
-	int getId();
+	Resource(string, string, string, string, string);
+	string getId();
 	string getSpec();
 	string getTitle();
 	string getAuthor();
 	string getPosition();
 
 
-	void setId(int);
+	void setId(string);
 	void setSpec(string);
 	void setTitle(string);
 	void setAuthor(string);
@@ -106,7 +109,7 @@ public:
 class Digital: public Resource
 {
 public:
-	Digital(int, string, string, string, string);
+	Digital(string, string, string, string, string);
 	void openLocation();
 };
 
@@ -115,7 +118,7 @@ class Real : public Resource
 private:
 	Date date;
 public:
-	Real(int, string, string, string, string);
+	Real(string, string, string, string, string);
 	Date getDate();
 	void setDate(Date);
 	void openLocation();
@@ -143,11 +146,13 @@ public:
 	void login(string, string);
 	int getLevel();
 	void addResource(Resource*);
-	bool borrow(int);
-	bool unBorrow(int);
+	bool borrow(string);
+	bool unBorrow(string);
 	void showResources();
-	void showResource(int);
+	void showResource(string);
 
 	bool init(string);
 	bool save(string);
 };
+
+#endif

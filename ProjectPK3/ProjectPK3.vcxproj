@@ -79,8 +79,22 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Definitions.h" />
-    <ClInclude Include="Headers.h" />
+    <ClInclude Include="AListD.h" />
+    <ClInclude Include="AListH.h" />
+    <ClInclude Include="CascadeD.h" />
+    <ClInclude Include="CascadeH.h" />
+    <ClInclude Include="DateD.h" />
+    <ClInclude Include="DateH.h" />
+    <ClInclude Include="DigitalD.h" />
+    <ClInclude Include="DigitalH.h" />
+    <ClInclude Include="ElementD.h" />
+    <ClInclude Include="ElementH.h" />
+    <ClInclude Include="ListD.h" />
+    <ClInclude Include="ListH.h" />
+    <ClInclude Include="RealD.h" />
+    <ClInclude Include="RealH.h" />
+    <ClInclude Include="ResourceD.h" />
+    <ClInclude Include="ResourceH.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

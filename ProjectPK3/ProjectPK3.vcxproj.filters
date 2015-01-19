@@ -24,10 +24,52 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers.h">
+    <ClInclude Include="DateH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Definitions.h">
+    <ClInclude Include="DateD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AListH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AListD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DigitalH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DigitalD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RealH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RealD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CascadeH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CascadeD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

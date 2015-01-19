@@ -2,7 +2,7 @@
 #include "AListH.h"
 #include "ElementD.h"
 template<class T>
-class List : public AList
+class List : public AList//klasa do reprezentacji listy jednkierunkowej
 {
 private:
 	Element<T> *begin,/* *end,*/ *iterator;
@@ -10,12 +10,12 @@ private:
 public:
 	bool empty();
 	unsigned int getSize();
-	List();
-	~List();
+	List();//inicjalizuje pust¹
+	~List();//destruktor
 	List(const List&);
 	void pushBack(T&);
 	void pullBack();
 	T getIterator();
 	T incIterator();
-	void resetIterator();
+	void resetIterator();//ustawia iterator na pocz¹tek
 };

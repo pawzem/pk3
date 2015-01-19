@@ -1,5 +1,5 @@
 #pragma once
-class AList
+class AList//abstrakcyjna lista
 {
 private:
 protected:

@@ -6,7 +6,7 @@
 Cascade::Cascade(string login, string password){
 	if ((login == this->alogin) && (password == this->apassword)){
 		this->level = this->alevel;
-	}
+	}//logowanie
 	else if ((login == this->ulogin) && (password == this->upassword)){
 		this->level = this->ulevel;
 	}
@@ -18,7 +18,7 @@ Cascade::Cascade(string login, string password){
 void Cascade::login(string login, string password){
 	if ((login == this->alogin) && (password == this->apassword)){
 		this->level = this->alevel;
-	}
+	}//tak jak konstruktor
 	else if ((login == this->ulogin) && (password == this->upassword)){
 		this->level = this->ulevel;
 	}
@@ -35,7 +35,7 @@ void Cascade::addResource(Resource* book){
 	if (level <= this->ulevel)(this->lista).pushBack(book);
 }
 
-bool Cascade::borrow(string isbn){
+bool Cascade::borrow(string isbn){//przeszukaj listê
 	if (this->level >= this->ulevel)return false;
 	(this->lista).resetIterator();
 	int s = (this->lista).getSize();
@@ -52,9 +52,9 @@ bool Cascade::borrow(string isbn){
 	return false;
 }
 
-bool Cascade::unBorrow(string isbn){
-	if (this->level >= this->ulevel)return false;
-	(this->lista).resetIterator();
+bool Cascade::unBorrow(string isbn){//prawie jak borrow
+	if (this->level >= this->ulevel)return false;//by³o by to samo
+	(this->lista).resetIterator();//ale nie zawsze da siê wypo¿yczyæ
 	int s = (this->lista).getSize();
 	for (int i = 0; i < s; ++i){
 		Resource* curr = (this->lista).getIterator();
@@ -69,7 +69,7 @@ bool Cascade::unBorrow(string isbn){
 	return false;
 }
 
-void Cascade::showResources(){
+void Cascade::showResources(){//peziteruj po liœcie
 	(this->lista).resetIterator();
 	int s = (this->lista).getSize();
 	for (int i = 0; i < s; ++i){
@@ -86,7 +86,7 @@ void Cascade::showResources(){
 }
 
 
-void Cascade::showResource(string isbn){
+void Cascade::showResource(string isbn){//poka¿ o id
 	(this->lista).resetIterator();
 	int s = (this->lista).getSize();
 	for (int i = 0; i < s; ++i){

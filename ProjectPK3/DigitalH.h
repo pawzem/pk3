@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-class Digital : public Resource
+class Digital : public Resource//reprezentuje obiekt wirtualny
 {
 public:
 	Digital(string, string, string, string, string);

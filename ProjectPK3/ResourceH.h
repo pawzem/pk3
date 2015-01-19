@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "DateD.h"
-class Resource
+class Resource//reprezentuje obiekt trzymany w bibliotece
 {
 private:
 protected:
@@ -11,8 +11,8 @@ protected:
 	Date returns;
 	bool avilible;
 public:
-	Resource(string, string, string, string, string);
-	string getId();
+	Resource(string, string, string, string, string);//ustawiwa pola
+	string getId();//setery i getery
 	string getSpec();
 	string getTitle();
 	string getAuthor();
@@ -26,8 +26,8 @@ public:
 	void setPosition(string);
 	//void setReturnDate(string);
 
-	bool isAvilible();
-	bool changeStatus();
+	bool isAvilible();//czy da siê wypo¿yczyæ
+	bool changeStatus();//wypo¿ycz/oddaj
 
 	virtual void openLocation() = 0;
 

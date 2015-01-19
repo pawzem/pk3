@@ -33,9 +33,6 @@
     <ClInclude Include="AListH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AListD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ElementH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
